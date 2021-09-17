@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> </title>
+    </head>
+    <body>
+       
+        <!-- length of the string -->
+        <h1> Length of the string </h1>
+        <div id="string"></div>
+
+        <script type="text/javascript">
+            let x = "Liya Thomas"; 
+            document.getElementById("string").innerHTML = x.length // returns  total length Liya Thomas string
+            document.write(x); // printing Liya Thomas
+        </script>
+        
+        <hr>
+
+        <!-- Replace the String  -->
+        <h1> Replace String </h1>
+        <button onclick="replacingthestring()"> press here </button> <!-- press here button-->
+        <p id="replacingstring"> Hi user ,how are you </p> <!-- result-->
+
+        <script>
+            function replacingthestring() {
+                let y = document.getElementById("replacingthestring").innerHTML; 
+                document.getElementById("replacingthestring").innerHTML = y.replace("first", "second"); // replace the word "first" with "second"
+            }
+        </script>
+
+        <hr>
+
+        <!-- Changing to  Upper and Lower Case -->
+        <h1> Changing to Upper or Lower Case </h1>
+        <button onclick="converttouppercase()"> Convert to Upper Case </button> <!-- changing to uppercase function -->
+        <p id="uppercase"> this is my week three task one</p> 
+
+        <button onclick="converttolowercase()"> Convert to Lower Case </button> <!-- Changing to Lowercase function -->
+        <p id="lowercase"> THIS IS MY WEEK THREE TASK one </p>
+
+        <script>
+            function converttouppercase() {
+                let t1 = document.getElementById("uppercase").innerHTML; 
+                document.getElementById("uppercase").innerHTML = t1.toUpperCase(); // changing to uppercase
+            }
+
+            function converttolowercase() {
+                let t2 = document.getElementById("lowercase").innerHTML; 
+                document.getElementById("lowercase").innerHTML = t2.toLowerCase(); // changing  to lowercase 
+            }
+        </script>
+    </body>
+</html>

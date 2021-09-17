@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head> 
+        <title></title>
+        <style>
+              div {
+  background-color: lightskyblue;
+}
+
+        </style>
+        
+        <!-- Js -->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"> </script>
+    </head>
+    <body>
+       
+        <h1> Task 2 of week 7 --- Coding Props </h1>
+        <div id="codingprops"> 
+            <c :text="message1"></c> 
+            <c :text="message2"></c> 
+        </div>
+
+        <!-- Js -->
+        <script>
+            Vue.component('c', {
+                props: { // Object
+                    text: {
+                        type: String, 
+                        required: true 
+                    }
+                },
+                template: `<div>{{ text }}</div>`
+            });
+
+            new Vue({ //  Vue instance
+                el: '#codingprops', // Passing object
+                data() {
+                    return { // 
+                        message1: 'Coding Props.',//message 1
+                       
+                        message2: 'if this message displays in web page that means Coding props works !!!'//message 2
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>

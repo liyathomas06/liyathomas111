@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> </title>
+    </head>
+    <body>
+      <style>
+            div {
+  background-color:lightskyblue;
+}
+
+      </style>
+        <h1> Task3 of week 3 </h1>
+
+        <h3> Get the time(milliseconds since January 1, 2000) </h3>
+        <div id="getTime"></div>
+        <br>
+        
+        <h3> year --- four digit number (yyyy) </h3>
+        <div id="getFullYear"></div>
+        <br>
+        
+        <h3> month - number (0-12) </h3>
+        <div id="getMonth"></div>
+        <br>
+
+        <h3> day - number (1-31) </h3>
+        <div id="getDate"></div>
+        <br>
+
+        <h3>  hour-number (0-24) </h3>
+        <div id="getHours"></div>
+        <br>
+
+        <h3>  minute -number (0-60) </h3>
+        <div id="getMinutes"></div>        
+        <br>
+
+        <h3>  second -number (0-60) </h3>
+        <div id="getSeconds"></div>
+        <br>
+
+        <script type="text/javascript"> 
+            var d = new Date();
+            document.getElementById("getTime").innerHTML = d.getTime(); // time )
+            document.getElementById("getFullYear").innerHTML = d.getFullYear(); //  year 
+            document.getElementById("getMonth").innerHTML = d.getMonth(); //  month 
+            document.getElementById("getDate").innerHTML = d.getDate(); //  day
+            document.getElementById("getHours").innerHTML = d.getHours(); //  hour 
+            document.getElementById("getMinutes").innerHTML = d.getMinutes(); //  minute 
+            document.getElementById("getSeconds").innerHTML = d.getSeconds(); //  second
+        </script>
+    </body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    </head>
+    <body>
+        <style>
+            div {
+  background-color: rgb(190, 220, 240);
+}
+
+        </style>
+        <!-- Week 4 task 1-->
+        <h1> Task 1 of Week 4  Declarative rendering  </h1>
+        
+      
+        <!-- The data and the DOM are now linked, and everything is now reactive. -->
+        <div id="task1">
+           
+            {{ message1 }}
+            <br>
+            {{ test }}
+            <br>
+
+            <!-- V-bind attribute -->
+            <span v-bind:title="message2"> Click here in the link to open the link</span>
+            <br>
+            <a v-bind:href="link"> Click here to open W3school website </a>
+            <p> or </p>
+            <a v-bind:href="link"> {{ link }} </a>
+        </div>
+
+        <!-- Js -->
+        <script>
+            var taskone = new Vue({
+                el: '#task1', // el stands for elements
+                data: {
+                    message1: 'Hi welcome ',
+                    test: 'My name is Liya Thomas.',
+                    message2: 'You loaded this page on ' + new Date().toLocaleString(),
+                    link: 'https://www.w3schools.com/',
+                }
+            })
+        </script>
+
+        <hr>
+
+        <!-- Task 2 of week 4 -->
+        <h1> Task 2 of Week 4---- Conditionals and Loops </h1>
+        <div id="task2">
+
+            
+            <span v-if="seen"> 
+                
+                <p>Languages your enrolled </p>
+                <ol>
+                    <!-- the v-for directive can be used for displaying a list of items using the data from an array -->
+                    <li v-for="unit in units">
+                    {{ unit.text }}
+                    </li>
+                </ol>
+            </span>
+
+            <!--  if fasle -->
+            <span v-else="seen">
+                You donot have access to this page 
+            </span>
+        </div>
+
+        <!-- Js -->
+        <script>
+            var tasktwo = new Vue({
+                el: '#task2',
+                data: {
+                    seen: true,
+                    units: [ // array 
+                        { text: 'html' },
+                        { text: 'css' },
+                        { text: 'Js' },
+                        { text: 'C++' }
+                    ]
+                }
+            })
+        </script>
+    </body>
+</html>

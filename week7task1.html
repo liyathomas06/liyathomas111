@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head> 
+        <title> </title>
+ <style>
+       div {
+  background-color: lightskyblue;
+}
+
+ </style>
+        <!-- Js -->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"> </script>
+    </head>
+    <body>
+       
+        <h1> Task 1 of week 7----- Local and Global Registration </h1>
+        
+       
+        <div id="local"> </div>
+
+        <br> 
+
+       
+        <div id="global"> </div>
+
+        <!-- Js -->
+        <script>
+            // Local
+            const LocalRegistration = {
+                template:'<div><h3>${message}</h3> <button @click="test"> Click me! </button></div>',
+                delimiters: ['${','}'], 
+                data: function() { 
+                    return {
+                        message: 'Test Local Registration'
+                    }
+                },
+                methods: {
+                    test: function(){ 
+                        alert('Successfully registration works');
+                    }
+                }
+            };
+            //local
+            let local = new Vue({ 
+                el:'#local',
+                components: { //  instance
+                    'local-registration': LocalRegistration
+                },
+                data: {
+                    num: 1
+                },
+                template: `<local-registration/>` 
+            });
+
+            // Global
+            Vue.component('global-registration', {
+                template: '<div><h3>${message}</h3> <button @click="test"> Click me! </button></div>', 
+                delimiters: ['${','}'], 
+                data: function() {
+                    return { // return message 
+                        message: 'Test Global Registration'
+                    }
+                },
+                methods: {
+                    test: function() { 
+                        alert('Successfully registration works');
+                    }
+                }
+            })
+
+            let global = new Vue({
+                el:'#global',
+                template: `<global-registration/>` 
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> </title>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"> </script>
+    </head>
+    <body>
+     <style>
+           div {
+  background-color: lightskyblue;
+}
+
+     </style>
+        <h1> Task 1 of week 6 -- Using V-model for handling  </h1>
+        
+        <!--  form -->
+        <form id="userform">
+           
+            <h2> Form User </h2> 
+
+            <!-- label for name -->
+            <label for="name"> Name: {{ name }} </label> <br>
+          
+            <input id="name" type="text" placeholder="Enter your name" v-model="name"> 
+            
+            <br><br>
+            
+            <!-- label for password -->
+            <label for="password"> Password: </label> <br>
+           
+            <input id="password" type="password" placeholder="Must have at least 4 characters" v-model="password">
+            
+            <br><br>
+            
+            <!-- label for email -->
+            <label for="email"> Email: </label> <br>
+            
+            <input id="email" type="email" placeholder="liyakarumathy06@gmail.com" v-model="email">
+            <br><br>
+
+            <!-- Submit button -->
+            <button v-on:click="checkInput"> Submit </button>
+        </form>
+
+        <!-- Js -->
+        <script>
+            //  v-model directive
+            var form = new Vue ({
+                el: "#userform", 
+                data: {
+                    name: '',
+                    password: '',
+                    email: ''
+                },
+                methods: {
+                    checkInput: function() { // Function for user's inputs
+                        var str='';
+                        if (this.name) {
+                            str = str + "Name: " + this.name; 
+                        }
+                        if (this.password) {
+                            str = str + " Password: " + this.password; 
+                        }
+                        if (this.email) {
+                            str = str + " Email: " + this.email; 
+                        }
+                        if (str) { // alerts 
+                            alert(str)
+                        } else { 
+                            alert("Please input required info.")
+                        }
+                    }
+                }
+            })
+        </script>
+
+        <hr> <!-- Line-->
+        <hr> <!-- Line-->
+        <hr> <!-- Line-->
+
+        
+        <h1> Task 2  for week 6 --- Checkbox in  project </h1>
+
+        <!-- Multiple value binding  -->
+        <div id="multiplecheckboxes">
+            <h2> list </h2>
+
+           
+            <input type="checkbox" id="chocolate" value="chocolate" v-model="List">
+            <label for="Chocolate"> Chocolate </label>
+            <br>
+            <input type="checkbox" id="icecream" value="icecream" v-model="List">
+            <label for="icecream"> icecream </label>
+            <br>
+            <input type="checkbox" id="chips" value="chips" v-model="List">
+            <label for="chips"> chips </label>
+            <br>
+            <input type="checkbox" id="milk" value="milk" v-model="List">
+            <label for="milk">milk</label>
+            <br><br>
+
+            <!-- 2 way binding -->
+            <span> Adding cart: {{ List }} </span>
+        </div>
+
+        <!-- Js -->
+        <script>
+            new Vue ({
+                el: '#multiplecheckboxes',
+                data: {
+                    List: [] 
+                }
+            })
+        </script>
+
+        <hr> <!-- Line -->
+        <hr> <!-- Line-->
+        <hr> <!-- Line-->
+
+        
+        <h1> Task 3 of week 6  Dynamic options rendering v-for </h1>
+        <h2> Days </h2>
+        <div id="dynamicoptions"> 
+            <select v-model="selected">
+                <!-- Dynamic -->
+                <option v-for="option in days" v-bind:value="option.value">
+                    {{ option.text }}
+                </option>
+            </select>
+            <br><br>
+
+            <!-- Two-way binding -->
+            <span> Selected: {{ selected }} </span>
+        </div>
+
+        <!-- Js -->
+        <script>
+            new Vue ({
+                el: '#dynamicoptions',
+                data: {
+                    selected: 'sunday', // default 
+                    days: [
+                        { text: '1', value: 'sunday'},
+                        { text: '2', value: 'monday'},
+                        { text: '3', value: 'tuesday'},
+                        { text: '4', value: 'wednesday'},
+                        { text: '5', value: 'thursday'},
+                        { text: '6', value: 'friday'},
+                        { text: '7', value: 'saturday'},
+                        
+                    ]
+                }
+            })
+        </script>
+        <hr> <!-- Line-->
+        <hr> <!-- Line-->
+        <hr> <!-- Line-->
+        
+        <h1> Task 4 of week 6 ---- Using Modifiers in your project </h1>
+        <form id="task4">
+            
+            <h2> Lazy Modifiers </h2>
+
+            <!-- label user input -->
+            <label for="l"> Type your feedback and enter </label> <br>
+            
+           
+            <input id="l" type="text" v-model.lazy="l">
+            
+           
+            <button v-on:click="checkInput"> Submit!!!! </button>
+            
+
+            
+            <h2> Trim </h2>
+            
+            <!-- label -->
+            <label for="trim"> type your favourite color
+                <br>
+                Text: {{ trim }}
+            </label> <br>
+            
+           
+            <input id="trim" type="text" v-model.trim="trim">
+            
+           
+            <button v-on:click="checkInput"> Submit </button>
+
+
+            <!-- Automatic Typecasting -->
+            <h2> Automatic Typecasting (as a number) </h2>
+            
+            <
+            <label for="age"> enter your your age here
+                <br>
+                age: {{ number}}
+            </label> <br>
+            
+            
+            <input id="age" type="number" v-model.number="age">
+            
+            <!-- submit button-->
+            <button v-on:click="checkInput"> Submit </button>
+        </form>
+        
+        <!-- Js -->
+        <script>
+            var task4 = new Vue ({
+                el: "#task4",
+                data: {
+                    lazy: '',
+                    trim: '',
+                    age: ''
+                },
+                methods: {
+                    checkInput: function() { // Function to check  
+                        var str='';
+                        if (this.l) {
+                            str = str + "Text: " + this.l; 
+                        }
+                        if (this.trim) {
+                            str = str + "Text: " + this.trim; 
+                        }
+                        if (this.age) {
+                            str = str + "number: " + this.age; 
+                        }
+                        if (str) { // Alert 
+                            alert(str)
+                        } else {
+                            alert("Something went wrong somewhere.")
+                        }
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>

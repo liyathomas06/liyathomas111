@@ -1,0 +1,82 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+        <title> </title>
+        
+        <style>
+            #app {
+                background:skyblue;
+                border-radius: 8px;
+                padding: 30px;
+                transition: all 0.2s;
+            }
+
+            li {
+                list-style: none;
+            }
+
+            del {
+                color:blue;
+            }
+
+            h3 {
+                margin-left: 40px;
+            }
+            h1 {
+  background-color:rgb(37, 170, 223);
+}
+
+div {
+  background-color: lightblue;
+}
+
+
+        </style>
+
+        <!--  Vue -->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <!--heading-->
+            <h1> Todos </h1>
+            <hr> 
+            <ol>
+                <li v-for="todo in todos">
+                    <label>
+                        
+                        <input type="checkbox" v-on:change="toggle(todo)" v-bind:checked="todo.done">
+                        
+                        
+                        <del v-if="todo.done">
+                            {{ todo.text }}
+                        </del>
+                        <span v-else>
+                            {{ todo.text }}
+                        </span>
+                    </label>
+                </li>
+            </ol>
+
+            <script>
+                new Vue ({
+                    el: "#app", 
+                    data: { 
+                        // todos is  object
+                        todos: [
+                            { text: "Assignment 1 SIT120 - Introduction To Responsive Web Apps", done: false }, 
+                            { text: "Assignment 2  SIT120 - Introduction To Responsive Web Apps", done: false },
+                            { text: "Assignment 3 SIT120 - Introduction To Responsive Web Apps", done: true },
+                        ]},
+                    //  property
+                    methods: {
+                        toggle: function(todo) { 
+                            todo.done = !todo.done
+                        }
+                    }
+                })
+            </script>
+
+        </div>
+    </body>
+</html>

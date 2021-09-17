@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> </title>
+
+        <!-- Js -->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"> </script>
+    </head>
+    <body>
+        <style>
+              div {
+  background-color: lightblue;
+}
+
+        </style>
+        <!-- Declerative rendering-->
+        <div id="taskfour"> 
+            <h1 class="task"> {{ task }} </h1>
+
+           
+            <!-- Allows parent  to manage child  content -->
+
+            <vue-slots>
+               
+
+                <p slot="first"> congrats from first slot </p>
+
+                
+
+                <p slot="second"> congrats from second  slot</p>
+                <p> congrats from parent </p>
+
+            </vue-slots>
+
+            <!--  render testing from  child -->
+            <vue-slots> </vue-slots>
+        </div>
+
+        <!-- Js--> 
+        <script type="text/x-template" id="vue-slots"> 
+            <div>
+                <!-- first slot end up --> 
+                <slot name="first"> </slot>
+
+                
+                <slot> 
+                    <!-- Override -->
+                    <p> Congrats from  child </p>
+                </slot> 
+
+                <!-- second slot end -->
+                <!-- Only ordered elements with the slot attribute can utilize this element -->
+                <slot name="second"> </slot>
+            </div>
+        </script>
+
+        <script>
+            Vue.component('vue-slots', {
+                template: '#vue-slots',
+                data() {
+                    return {
+                        childTitle: 'Hello'
+                    }
+                },
+                props: {
+                    type: String,
+                    required: true
+                }
+            });
+
+            new Vue({
+                el: '#taskfour',
+                data() {
+                    return {
+                        task: 'Task 4 of week 7 -----: Vue Slots ',
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> </title>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"> </script>
+    </head>
+    <body>
+        <style>
+            div {
+  background-color: rgb(141, 206, 228);
+}
+
+        </style>
+        
+        <h1>  Learning  Composing with Components </h1>
+        <div id="task1"> 
+            <h2 v-bind:title = "message"> {{ message }} </h2>
+            <ol>
+                
+                <task-list v-for="list in todos" v-bind:task="list" v-bind:key="list.key"> </task-list>
+            </ol>
+        </div>
+
+
+        <!-- Js -->
+        <script>
+            
+            //  component 
+            Vue.component('task-list', {
+               
+                props: ['task'], //  prop is known as  task
+                template: '<li> {{ task.item }} </li>'
+            })
+
+            var Task1 = new Vue({
+                el: "#task1",
+                data: {
+                    message: "Task 1  of week 5 SIT 120",
+                    todos: [
+                        {key:1, item:">>Learning Composing with Components"},
+                        {key:2, item:">>Exploring  the Vue Framework"},
+                        {key:3, item:">>Understand the  Handling User Input"},
+                        {key:4, item:">>Learning the Components in details"},
+                    ]
+                }
+            })
+        </script>
+    </body>
+</html>

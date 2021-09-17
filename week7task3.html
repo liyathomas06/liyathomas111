@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> </title>
+<style>
+      div {
+  background-color: lightskyblue;
+}
+
+</style>
+
+        <!-- js -->
+        
+        <script src="https://unpkg.com/vue@next"></script>
+    </head>
+    <body>
+       
+        <h1> Task 3 of week 7 --- Custom Events </h1>
+        <div id="custom-events">
+            <!-- Bind component -->
+            <p>  First name is : {{ firstName }} </p>
+            <p>   Last name is : {{ lastName }} </p>
+            <p> email id is : {{ emailid }} </p>
+
+            
+            <user-information
+                v-model:first-name="firstName"
+                v-model:last-name="lastName"
+                v-model:home-address="emailid"
+            ></user-information>
+        </div>
+
+        <script>
+            const UserInformation = {
+                props: {
+                    firstName: String,
+                    lastName: String,
+                    emailid: String
+                },
+                template: // The template to show information from the user
+                ` 
+                    <input 
+                    type="text"
+                    :value="firstName"
+                    placeholder="First Name"
+                    @input="$emit('update:firstName', $event.target.value)">
+                    <input
+                    type="text"
+                    :value="lastName"
+                    placeholder="Last Name"
+                    @input="$emit('update:lastName', $event.target.value)">
+                    <input
+                    type="text"
+                    :value="homeAddress"
+                    placeholder="Home Address"
+                    @input="$emit('update:homeAddress', $event.target.value)">
+                `
+                
+            };
+
+            const CustomEvents = {
+                components: {
+                    UserInformation
+                },
+                data() {
+                    return {
+                        firstName: 'Liya ',
+                        lastName: 'Thomas',
+                        emailid: 'Shemeshi riyadh 1180,'
+                    };
+                },
+            };
+
+            Vue.createApp(CustomEvents).mount('#custom-events')
+        </script>
+    </body>
+</html>

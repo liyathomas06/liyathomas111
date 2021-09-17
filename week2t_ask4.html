@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> </title>
+       
+        <style>
+            /* Font for the whole body section */
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+                background-color:lightseagreen;
+            }
+
+            /* Text alignment for every h1 and h2 */
+            h1, h2 {
+                text-align: center;
+                
+            }
+
+            /* Setting the border radius for all images */
+            img {
+                border-radius: 100%;
+               
+            }
+
+            .column {
+                float: left;
+                height: 300px;
+                background-color:skyblue;
+            }
+
+            .left {
+                width: 30%;
+               
+            }
+
+            .right {
+                width: 70%;
+            }
+            /* Drag the image and drop it */
+            #div1, #div2 {
+                float:left;
+                width: 300px;
+                height: 200px;
+                margin: 20px;
+                padding: 20px;
+                border: 1px solid blue;
+            }
+        </style>
+
+        <!-- JavaScript -->
+        <script>
+            //  explanation notification
+            function explanation() {
+	            alert("explanation");
+            }
+
+            // activity notification
+            function activity() {
+	            alert("activity");
+            }
+
+            // add the sum and shows average
+            function numbers() {
+                var j= 0;
+                var sum = 0;
+                var average = 0;
+                var numbers = [];
+                var amo;
+                amo = prompt("how many numbers are there ?please enter--");
+                if (amo> 0) {
+                    do {
+                        numbers[j] = prompt("Enter numbers" + (j+1));
+                        sum = sum + parseInt(numbers[j]);
+                        j++ 
+                    } while (j < amo);
+
+                    average = sum / amo;
+
+                    alert(" total sum is " + sum + " and  average of sum is " + average + ".");
+                }
+
+            }
+              // geographic coordinates
+              var y= document.getElementById("pos");
+
+function getLocation() { // Function ---- position of geographic coordinates  API
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+        y.innerHTML = "Browser is not supported by geolocation.";
+    }
+}
+
+function showPosition(position) { // show position
+    y.innerHTML = "Position: " + position.coords.latitude + ", " + position.coords.longitude;
+}
+
+// Dragging  & Dropping
+function allowDrop(im) { //  dropped 
+    im.preventDefault();
+}
+
+function drag(im) { //  drag  
+    im.dataTransfer.setData("text", im.target.id);
+}
+
+function drop(im) { //  drop and place it 
+    im.preventDefault();
+    var data = im.dataTransfer.getData("text");
+    im.target.appendChild(document.getElementById(data));
+}
+        </script>
+    </head>
+    <body>
+        <h1>Lovely maths tution centre</h1>
+
+        <!-- Image -->
+        <center><img src="OIP.jpg" style="height: 300px"></center>
+
+        <h2> Hi students welcome to lovely maths tution centre </h2>
+
+        <!--  row -->
+        <div class="row">
+
+            <!--  first column -->
+            <div class="column left" style="background-color:lightblue">
+                <h2> Todays date and time </h2>
+                <br>
+                <center><button type="button" onclick="document.getElementById('demo').innerHTML = Date()"> Click here! </button></center>
+                <p id="demo"> </p>
+            </div>
+
+            <!-- second column -->
+            <div class="column right">
+                <h1> Time table </h1>
+
+                <!--  timetable  -->
+                <table border="1" width=75% align="center">
+                    <tr> 
+                        
+                        <td> Monday </td>
+                        <td> Tuesday </td>
+                        <td> Wednesday </td>
+                        <td> Thursday </td>
+                        <td> Friday </td>
+                        <td> Saturday </td>
+                        <td> Sunday </td>
+                        
+                        <h3>if there is any changes in timetable will inform students by messaging</h3>
+                    </tr>
+                    <tr>
+                        <td onclick="explanation()"> 14:00 - 16:00 grade-6</td>
+                        <td onclick="explanation()"> 04:00 - 06:00 grade-8</td>
+                        <td onclick=" explanation()"> 3:00 - 4:30 grade-7</td>
+                        <td onclick="activity()"> 5:00 - 7:30 grade-8 </td>
+                        <td style="background-color: lightblue;"> </td>
+                        <td style="background-color: lightblue;"> </td>
+                        <td style="background-color: lightblue;"> </td>
+                    </tr>
+                    <tr>
+                        <td onclick="activity()"> 13:00 - 14:50 grade-7 </td>
+                        <td onclick="activity()"> 13:00 - 14:50 grade-7 </td>
+                        <td style="background-color: lightblue;"> </td>
+                        <td onclick="activity()"> 15:00 - 17:00 grade-6 </td>
+                        <td onclick="activity()"> 14:00 - 16:00 grade-6 </td>
+                        <td onclick="activity()"> 14:00 - 16:00 grade-8 </td>
+                        <td style="background-color: lightblue"> </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    
+        
+  
+
+        <!--  row -->
+        <div class="row">
+
+            <!--  column -->
+            <div class="column" style="background-color: rgb(143, 179, 188); width: 100%; height: fit-content;">
+                <h2> Reminder </h2>
+                <ul> 
+                  
+                    <li> Bring note book,stationary items,text book of your own </li>
+                    <li> Carry santizer and extra mask </li>
+                    <li> Mobile phone is prohibited</li>
+                    <li> Report at corect time</li>
+                </ul>
+            </div>
+        </div>
+
+        
+        <div class="row">
+            <div class="column" style="width: 100%; height: 10px;"> </div>
+        </div>
+
+        <!--  row -->
+        <div class="row">
+
+            <!--  column -->
+            <div class="column" style="width: 100%; background-color: lightblue;"> 
+                <h2> Please provide your feedback here </h2>
+
+                
+                <center><form> <!--a form -->
+                    <!-- The form label -->
+                    <label for="concerns"> Any quires or  feedback can be submitted here .If quires please provide your email address or contact number  for contacting</label>
+
+                    <!-- input text -->
+                    <input type="text" id="concerns" name="concerns" style="width: 95%; height: 160px;">
+
+                   <button type="button"> Submit </button>     <!--button to submit-->
+                    
+
+                </form></center>
+            </div>
+        </div>
+
+        <br>
+
+        <div> 
+            <h2> Calculator for adding  numbers and average </h2>
+            <center><button onclick="numbers()"> Click here</button></center>
+        </div>
+
+
+        <!-- row for whitespace -->
+        <div class="row">
+            <div class="column" style="width: 100%; height: 10px;"> </div>
+        </div>
+
+        <!--  geographic coordinates -->
+        <div style="background-color: #63C5DA">
+            <h2> your  geographic coordinates </h2>
+            <center><button onclick="getLocation()"> Press here to show your geographic coordinates </button></center>
+            <p id="pos"> </p>
+        </div>
+
+        <!--  row for a whitespace -->
+        <div class="row">
+            <div class="column" style="width: 100%; height: 10px;"> </div>
+        </div>
+ <h1>Introduction video about maths</h1>
+        <iframe width="1200" height="315" src="https://www.youtube.com/embed/JbhBdOfMEPs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <!-- Dragging and Dropping -->
+        <div>
+            <h2> Drag and Drop to  conform you are human  </h2>
+            <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <img src="love.jpg" draggable="true" ondragstart="drag(event)" id="drag1" width="300" height="100">
+            </div>
+              
+            <div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        </div>
+    </body>
+</html>

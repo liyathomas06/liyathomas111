@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> </title>
+
+       
+        <style>
+            /* Importing font */
+            @font-face {
+                font-family: Adolphus;
+                src: url(adolphus-serif.ttf);
+            }
+
+            
+            * {
+                font-family: Baskerville;
+                color:skyblue;
+            }
+
+            .nav-ul {
+                position: fixed;
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                top: 60px;
+            }
+
+            .nav-li {
+                display: inline;
+                padding: 17px 40px;
+            }
+
+            /* Changes the font color when we hover  link */
+            li a:hover {
+                color:skyblue;
+            }
+
+            /* Styling the link */
+            a {
+                color:blue;
+                text-decoration: none;
+            }
+
+            .active {
+                text-decoration: underline;
+            }
+
+            /*  web name */
+            .Name {
+                font-family: Adolphus;
+                width: 421px;
+                height: 70px;
+                left: 70px;
+                top: 50px;
+                font-size: 70px;
+                line-height: 75px;
+            }
+
+            .Page {
+                height: 41px;
+                top: 80px;
+                font-size: 30px;
+                line-height: 39px;
+                text-align: center;
+                font-weight: normal;
+            }
+
+            /* box */
+            .box {
+                width: 400px;
+                height: 400px;
+                background:skyblue;
+                border: 2px solid darkblue;
+                border-radius: 20px;
+                text-align: center;
+                font-size: 20px;
+                margin: auto;   
+                       
+            }
+
+            /*  column */
+            .column {
+                float: left;
+                width: 50%;
+                height: 500px;
+            }
+
+            /* S row */
+            .row:after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+
+            h1, h2 {
+                font-weight: normal;
+                color: maroon;
+            }
+
+            .topics {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .topic-font {
+                font-weight: bold;
+            }
+
+            /* Start button */
+            .start {
+                position: absolute;
+                text-align: center;
+                width: 200px;
+                height: 60px;
+                background:cornsilk;
+                border: 2px solid darkblue;
+                border-radius: 20px;
+                font-size: 30px;
+                line-height: 40px;
+                margin: 0;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+            div {
+  background-color: lightskyblue;
+}
+
+
+        </style>
+    </head>
+    <body style="background-image: url('background.jpg');">
+        <!-- Navigation -->
+        <nav>
+            <ul class="nav-ul">
+                <li class="Name nav-li"> Lovely maths tution </li>
+                <li class="Page active nav-li"><a href="home.html"> Home </a> </li>
+                <li class="Page nav-li"><a href="Topics.html"> topics </a> </li>
+                <li class="Page nav-li"><a href="Timetable.html"> timetable </a> </li>
+                
+            </ul>
+        </nav>
+
+        <br><br><br><br><br><br><br><br><br><br> 
+
+        <div class="row">
+            <!-- 1st  box -->
+            <div class="column">
+                <div class="box">
+                    <h1 style="font-style: italic;"> Grade 6 </h1>
+                    <h2> Chapter 1 - alegebra </h2>
+                    <h2> chapter-2 data handling </h2>
+                    <h2> Chapter 3- real numbers </h2>
+                    <h2> chapter-4 rational numbers </h2>
+                </div>
+            </div>
+
+            <!-- 2nd box -->
+            <div class="column">
+                <div class="box"> 
+                    <h1 style="font-style: italic;"> Grade 7 </h1>
+                    <h2> Chapter 1 - Number theory </h2>
+                    <h2> chapter-2 Data handling</h2>
+                    <h2> Chapter 3-coordination of numbers </h2>
+                    <h2> chapter-4 Proability </h2>
+                </div>
+            </div>
+        </div>
+
+        
+
+        <!-- Start button -->
+        <div class="start"> Start </div>
+
+    </body>
+</html>

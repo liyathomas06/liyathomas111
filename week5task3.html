@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> </title>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"> </script>
+    </head>
+    <body>
+
+        <style>
+          div {
+  background-color: lightblue;
+}
+  
+        </style>
+          
+
+        <h1> Task 3 of week 5--- Understanding Handling User Input </h1>
+        <div id="taskthree">
+
+            <!-- given option to users to add the things-->
+            <input v-model="newlist"> 
+
+            <!--  addlist function -->
+            <button v-on:click="addlist">Add to  list</button>
+            
+            <span v-if="seen">
+                <ul>
+                    <li v-for="list in list"> {{ list.name }} </li>
+                </ul>
+            </span>
+        </div>
+
+        <!-- Js-->
+        <script>
+           
+
+            var Taskthree= new Vue({
+                el: "#taskthree",
+                data: {
+                    seen: true, 
+                    list: [
+                        {name: "Chocolate"},
+                        {name: "Juice"},
+                        {name: "Cake"},
+                        {name: "ice cream"},
+                        {name: "lollipop"},
+
+                    ]
+                },
+                methods: {
+                    addlist: function(newlist) { //  add list
+                        var value = this.newlist // adding the new list choosed
+                        this.list.push({ 
+                            name: value 
+                        })
+                        this.newlist = '';
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>

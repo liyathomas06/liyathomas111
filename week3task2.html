@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> </title>
+    </head>
+    <body>
+        <!-- Number -->
+        <h1> Number  </h1>
+
+        
+        <h2> The toString() method </h2>
+        <!-- results-->
+        <p id="variable"></p>
+        <p id="literal"></p>
+        <p id="expression"></p>
+
+        <!-- JavaScript -->
+        <script type="text/javascript">
+            let y = 200; //  value
+            document.getElementById("variable").innerHTML = "y = " + y.toString(); // Returns 200 from variable 
+            document.getElementById("literal").innerHTML = "Returns 200 from literal 200 --" + (200).toString(); // Returns 200 from literal 200
+            document.getElementById("expression").innerHTML = "200 + 60 = " + (200 + 60).toString(); // Returns 200 + 51
+        </script>
+
+        <hr>
+
+        <!-- Array  -->
+        <h1> Array  </h1>
+
+        <!--  join -->
+        <h2>  join() method </h2>
+        <!-- RESULT -->
+        <p id="join"></p>
+        <p id="sort"></p>
+
+        <script type="text/javascript"> 
+            var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]; // Declaring array days
+            document.getElementById("join").innerHTML = days.join(", "); // showing on webpage
+            document.getElementById("sort").innerHTML = days.sort()  // showing days array alphabetically    
+        </script>
+
+        <!-- Popping -->
+        <h2> Popping in array </h2> <!-- Removes last element -->
+        <!-- Result -->
+        <p id="pop up"></p>
+
+        <script type="text/javascript">
+            days.pop(); // Removes the last element days array
+            document.getElementById("pop").innerHTML = days;
+        </script>
+
+
+        <!-- add new element -->
+        <h2> Adding new element</h2> <!-- Adding new element -->
+        <!-- Result -->
+        <button onclick="adddays()"> press me here </button> 
+        <p id="push"></p> 
+
+        <script type="text/javascript">
+            document.getElementById("push").innerHTML = days;
+
+            function adddays() { // Function to add Saturday
+                days.push("Saturday"); // Adding saturday at end
+                document.getElementById("push").innerHTML = days;
+            }
+        </script>
+    </body>
+</html>
